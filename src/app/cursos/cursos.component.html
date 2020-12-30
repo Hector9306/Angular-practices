@@ -1,0 +1,22 @@
+
+<!-- lo que esta dentro del div es una directiva de control
+ dentro de esta directiva tiene un JSON para el HTML-->
+<div [ngStyle] = "{
+    'background': config.fondo,
+    'color': config.color
+
+}">
+
+<p>cursos works!</p>
+<br>
+<ul>
+<!-- "let cursos" sirve solo para indicador de iteracion-->
+    <li *ngFor="let cursos of LosCursos">{{cursos.nombre}} - creditos: {{cursos.creditos}} - {{cursos.semestre}}
+        <!--Directiva *ngIf donde si cursos.cupos es "true" aparece el parrafo
+        con el mensaje y en un con un estilo css-->
+        <p *ngIf="cursos.cupos" [style.background] = "cursos.cupos ? 'black':'green'">-SI HAY CUPO</p>
+    </li>
+</ul>
+<br>
+{{titulo_cursos}}
+</div>
